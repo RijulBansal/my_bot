@@ -18,6 +18,8 @@ def generate_launch_description():
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('my_bot'))
     xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
+    #print(xacro_file)
+    xacro_file="/home/rijul/dev_ws/src/my_bot/description/robot.urdf.xacro"
     robot_description_config = xacro.process_file(xacro_file)
     
     # Create a robot_state_publisher node
@@ -28,7 +30,12 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
-
+    node_joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        output='screen',
+        parameters=[params]
+    )
 
     # Launch!
     return LaunchDescription([
