@@ -30,12 +30,12 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
-    node_joint_state_publisher = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        output='screen',
-        parameters=[params]
-    )
+    #node_joint_state_publisher = Node(
+     #   package='joint_state_publisher',
+      #  executable='joint_state_publisher',
+       # output='screen',
+        #parameters=[params]
+    #)
 
     # Launch!
     return LaunchDescription([
